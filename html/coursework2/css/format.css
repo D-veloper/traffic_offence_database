@@ -1,0 +1,72 @@
+body { 
+    /* avoid unexpecting spacing caused by default browser styles */
+    margin: 0; /*Resetting default styles for the body. Remove default spacing added by browsers*/
+    padding: 0; /*Resetting default styles for the body. Remove default spacing added by browsers*/
+    font-family: Arial, sans-serif;
+    position: relative; /* every child element in our webpage will be positioned relative to the body */
+}
+
+.background-image {
+    background-image: url('../images/login_1.png'); /*fetch our background image from its folder location */
+    background-size: cover; /* background image should cover the entire background*/
+    background-position: center; /* centre the background image*/
+    position: fixed; /*keep the image fixed so it doesn'x move if someone scrolls for instance (not that they can at this point anyway)*/
+    /* background image covers the entire viewport hence it's 100% width and height and starts from the top left corner */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Styling the division of the main content on my home page*/
+.content {
+    position: relative; /* elements under this will be positioned relative to it*/
+    z-index: 1; /* define its stacking order. It is above background image but will be below other elements*/
+    margin-bottom: 50px; /* This is used to position everything in our content at once - moves it lower as value increases */
+}
+
+.centre-heading { /* styles the heading text at the bottom of he content division*/
+    font-size: 3.5em;
+    color: white;
+    position: absolute; /*allows for positioning of the xeader relative to content so we can move it around, really*/
+    bottom: -320px; /*move the text down*/
+    left: 30%; /*move the text to the centre*/
+}
+
+.centre-paragraph {
+    font-size: 2.0em;
+    color: white;
+    position: absolute;
+    bottom: -350px;
+    left: 27%;
+}
+
+.traffic-light {
+    width: 150px;
+    position: fixed;
+    bottom: 35px;
+    left: 35px;
+}
+
+.uni-logo {
+    width: 75px;
+    position: fixed;
+    bottom: 640px;
+    left: 1460px;
+}
+
+.button-position {
+    position: absolute;
+    top: 10px; 
+    left: 47%;
+}
+
+.login-button {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    text-decoration: none; /* remove links getting underlined*/
+    font-size: 1.5em;
+    border-radius: 5px; /*add rounded corners to buttons*/
+    margin-top: -50px;
+}
