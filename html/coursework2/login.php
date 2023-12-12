@@ -20,12 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { /** If the user has pressed login (s
 
 	// Check if credentials are legitimate with query. Get the rows from login credentials table which username and password matches the user's input. 
 	// If login credential exists in our database, query will return one row
-	$query = "SELECT * FROM Login_Credentials WHERE Username='$login_username' AND Password='$login_password'";
-	$result = mysqli_query($conn, $query);
+	$sql = "SELECT * FROM Login_Credentials WHERE Username='$login_username' AND Password='$login_password'";
+	$result = mysqli_query($conn, $sql);
 
 	// Check if the query found the user input in our database.
 	if (mysqli_num_rows($result) == 1) {
     	// If credential was found, then the login is valid so we redirect user to main_page.php
+		session_start();
 		$_SESSION['username'] = $login_username; //session variable to store username so user cannot access other pages without having logged in successfully
     	header("Location: main_page.php"); // redirect
     	exit();

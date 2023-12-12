@@ -93,3 +93,41 @@ body {
     color: white;
     bottom: 150px;
 }
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none; /* initially don't display dropdown content*/
+    position: fixed;
+    background-color: #256fa7;
+}
+
+.dropdown:hover .dropdown-content { /*dis play content when we hover on dropdown class items */
+    display: block;
+}
+
+.dropdown-content a { /* styling the tags within dropdown content*/
+    padding: 12px 16px; /* fill the dropdown block up a bit so it looks better*/
+    text-decoration: none; /* I don't want the references underlined*/
+    display: block;
+    color: #fffbfb;
+}
+
+.dropdown-content a:hover {
+    background-color: #292929; /*styling the colour that appears when you hover on the links within drop down*/
+}
+
+.person-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.drop-arrow {
+    width: 18px;
+    height: 13px;
+    position: fixed;
+    left: 128;
+    top: 24;
+}
