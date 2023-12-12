@@ -26,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { /** If the user has pressed login (s
 	// Check if the query found the user input in our database.
 	if (mysqli_num_rows($result) == 1) {
     	// If credential was found, then the login is valid so we redirect user to main_page.php
-    	header("Location: main_page.php");
+		$_SESSION['username'] = $login_username; //session variable to store username so user cannot access other pages without having logged in successfully
+    	header("Location: main_page.php"); // redirect
     	exit();
 	} else {
     	// Invalid login, display an error message
