@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { /** If the user has pressed login (s
 
 <html>
     <head>
-        <title>Traffic Incident System: Login</title>
+        <title>Traffic Incident System: Change Password</title>
         <link rel="stylesheet" href="css/format.css">
     </head>
     <body>

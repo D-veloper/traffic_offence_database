@@ -14,9 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { /** If the user has pressed login (s
     $conn = mysqli_connect($servername, $username, $password, $dbname);
 
     // Check the connection
-    if (mysqli_connect_errno()) {
-        die("Failed to connect to MySQL: " . mysqli_connect_error());
-    }
+	if(mysqli_connect_errno())
+	{
+		echo "Failed to connect to MySQL:".mysql_connect_error();
+		die();
+	}
 
 	// Check if credentials are legitimate with query. Get the rows from login credentials table which username and password matches the user's input. 
 	// If login credential exists in our database, query will return one row
@@ -40,29 +42,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { /** If the user has pressed login (s
 ?>
 
 <html>
-<head>
-    <title>Traffic Incident System: Login</title>
-    <link rel="stylesheet" href="css/format.css">
-</head>
-<body>
-    <div class="background-image"></div>
-    <div class="content">
-        <img src="images/traffic_light.png" alt="Traffic Light" class="traffic-light">
-        <img src="images/uon.png" alt="University of Nottingham Logo" class="uon-logo">
+	<head>
+		<title>Traffic Incident System: Login</title>
+		<link rel="stylesheet" href="css/format.css">
+	</head>
+	<body>
+		<div class="background-image"></div>
+		<div class="content">
+			<img src="images/traffic_light.png" alt="Traffic Light" class="traffic-light">
+			<img src="images/uon.png" alt="University of Nottingham Logo" class="uon-logo">
 
-        <!-- Display error message if login fails -->
-        <?php if (isset($error_message)) : ?>
-            <p style="color: red; font-size: 12px; bottom: 290px; position: fixed; left: 43.5%;"><?php echo $error_message; ?></p>
-        <?php endif; ?>
+			<!-- Display error message if login fails -->
+			<?php if (isset($error_message)) : ?>
+				<p style="color: red; font-size: 12px; bottom: 290px; position: fixed; left: 43.5%;"><?php echo $error_message; ?></p>
+			<?php endif; ?>
 
-        <!-- Login Form -->
-        <form method="POST" class="login-form">
-            <label for="username">Username:</label>
-            <input type="text" name="username" required><br>
-            <label for="password">Password:</label>
-            <input type="password" name="password" required><br>
-            <input type="submit" value="Login" class="login-button" style = "font-size: 0.5em; bottom: 70px; left: 42.5%; position: fixed;">
-        </form>
-    </div>
-</body>
+			<!-- Login Form -->
+			<form method="POST" class="login-form">
+				<label for="username">Username:</label>
+				<input type="text" name="username" required><br>
+				<label for="password">Password:</label>
+				<input type="password" name="password" required><br>
+				<input type="submit" value="Login" class="login-button" style = "font-size: 0.5em; bottom: 70px; left: 42.5%; position: fixed;">
+			</form>
+		</div>
+	</body>
 </html>

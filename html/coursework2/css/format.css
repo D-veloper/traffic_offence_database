@@ -131,3 +131,50 @@ body {
     left: 128;
     top: 24;
 }
+
+.search-person
+{
+    position: fixed;
+    left: 200;
+    top: 100
+}
+
+.search-vehicle
+{
+    position: fixed;
+    left: 600;
+    top: 100
+}
+
+.add-vehicle
+{
+    position: fixed;
+    left: 1000;
+    top: 100
+}
+
+.search-bar {
+    display: inline-block;
+    position: fixed;
+    left: 350;
+}
+
+.search-input {
+    padding: 5px 25px 5px 10px;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.search-icon {
+    width: 28;
+    height: 28;
+    left: 210;
+    position: absolute;
+    top: 1;
+    right: 5px;
+}
