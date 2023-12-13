@@ -57,6 +57,38 @@ if (isset($_POST['submit_name_search'])) { //when submit is pressed, handle name
     searchByName($conn, $name_search);
 }
 
+function searchByLicense($conn, $license_search) //function to search our database
+{
+	if($license_search != "") // if they did not enter anything and hit search, prompt them to enter a valid name
+	{
+		$sql = "SELECT * FROM People WHERE People_licence LIKE UPPER('%$license_search') OR People_licence LIKE UPPER('$license_search%')"; //convert user input and database value into common form (upper case) so caps do not matter. Select the entire rows in the people class where the name is like the user input but what the user inputs might appear anywhere in People_name.
+		$result = mysqli_query($conn, $sql); // storx the result of our query
+		$spacing = 215; // variable to space out out answers. <br> break is breaking my poor ui lol
+
+		if(mysqli_num_rows($result) == 0) //if there are no rows then the name is not in our system
+		{
+			echo '<span style="color: red; position: fixed; line-height: 215px; left: 760; z-index: 1;">'."No results found for this full/partial license: '$license_search'". '</span>';
+		}
+	
+		else{
+			// loop through each row and output the data. customize style because background is black it won't show on default. Also position it where we want.
+			while ($row = mysqli_fetch_assoc($result)) {
+				echo '<span style="color: white; position: fixed; line-height: ' . $spacing . 'px; left: 500; z-index: 1;">'.$row["People_ID"]." ".$row["People_name"]." ".$row["People_address"]." ".$row["People_licence"].'</span>';
+				$spacing = $spacing + 50; // Increment spacing so the next is at a lower line height.
+			}
+		} 
+	}
+	else // this is where we tell the user to enter a name if they hit search when it is empty
+	{
+		echo '<span style="color: red; position: fixed; line-height: 215px; left: 760; z-index: 1;">'."Please enter a license to search". '</span>';
+	}
+
+}
+
+if (isset($_POST['submit_license_search'])) { //when submit is pressed, handle name search
+    searchByLicense($conn, $license_search);
+}
+
  // Close the database connection
  mysqli_close($conn);
 
@@ -89,16 +121,20 @@ if (isset($_POST['submit_name_search'])) { //when submit is pressed, handle name
 					<button type="submit" name="submit_name_search" class="search-button">
 						<img src="images/search_icon.png" alt="Search Icon" class="search-icon">
 					</button>
-					<input type="text" name="name_search" class="search-input" value="<?php echo $name_search; ?>" placeholder="Search Name...">
+					<input type="text" name="name_search" class="search-input" value="<?php echo $name_search; ?>" placeholder="Enter Name...">
 				</div>
 
 				<div class="search-bar" style="left: 800">
 					<button type="submit" name="submit_license_search" class="search-button">
 						<img src="images/search_icon.png" alt="Search Icon" class="search-icon">
 					</button>
-					<input type="text" name="license_search" class="search-input" value="<?php echo $license_search; ?>" placeholder="Search License Number...">
+					<input type="text" name="license_search" class="search-input" value="<?php echo $license_search; ?>" placeholder="Enter License Number...">
 				</div>
 			</form>
+
+			<a href="main_page.php" class="back-arrow">
+            	<img src="images/back_arrow.png" alt="Back Arrow">
+        	</a>
 		</div>
 	</body>
 </html>
