@@ -5,35 +5,6 @@ if (!isset($_SESSION['username'])) { // check if the user is not logged in. If t
     header("Location: login.php"); // redirect the user to the login page
     exit(); // terminate this script
 }
-
-// redirect admin users to main_page with extra functionality
-
-// MySQL database information
-$servername = "mariadb";
-$username = "root";
-$password = "rootpwd";
-$dbname = "coursework2";
-
-// Create a database connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check the connection
-if(mysqli_connect_errno())
-{
-	echo "Failed to connect to MySQL:".mysql_connect_error();
-	die();
-}
-
-$sql = "SELECT Admin FROM Login_Credentials WHERE Username = '" . $_SESSION['username'] . "';"; // get the admin status of current user
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
-$admin_status = $row["Admin"];
-
-if ($admin_status == 1) // if admin redirect user
-{
-	header("Location: admin_main_page.php");
-	exit();
-}
 ?>
 
 <html>
@@ -55,6 +26,7 @@ if ($admin_status == 1) // if admin redirect user
 				<div class="dropdown-content"> <!-- class to style the drop down content-->
 					<!-- link each option to our desired php page -->
 					<a href="change_password.php">Change Password</a> 
+					<a href="add_new_officer.php">Add New Officer</a>
 					<a href="logout.php">Logout</a>
 				</div>
 			</div>

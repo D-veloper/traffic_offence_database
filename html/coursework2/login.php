@@ -30,6 +30,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { /** If the user has pressed login (s
     	// If credential was found, then the login is valid so we redirect user to main_page.php
 		session_start();
 		$_SESSION['username'] = $login_username; //session variable to store username so user cannot access other pages without having logged in successfully
+		
+		$_SESSION['licence_number'] = "";
+        $_SESSION['vehicle_type'] = "";
+        $_SESSION['people_ID'] = "";
+        $_SESSION['vehicle_colour'] = "";
+
     	header("Location: main_page.php"); // redirect
     	exit();
 	} else {
