@@ -42,7 +42,7 @@ body {
     color: white;
     position: absolute; /*allows for positioning of the xeader relative to content so we can move it around, really*/
     bottom: -320px; /*move the text down*/
-    left: 30%; /*move the text to the centre*/
+    left: 20%; /*move the text to the centre*/
 }
 
 .centre-paragraph {

@@ -96,7 +96,7 @@ if (isset($_POST['submit_license_search'])) { //when submit is pressed, handle n
 
 <html>
 	<head>
-		<title>Traffic Incident System: Search People</title>
+		<title>TIMS: Search People</title>
 		<link rel="stylesheet" href="css/format.css">
 	</head>
 

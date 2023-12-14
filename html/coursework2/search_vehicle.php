@@ -87,7 +87,7 @@ if (isset($_POST['submit_plate_search'])) { //when submit is pressed, handle nam
 
 <html>
 	<head>
-		<title>Traffic Incident System: Search Vehicle</title>
+		<title>TIMS: Search Vehicle</title>
 		<link rel="stylesheet" href="css/format.css">
 	</head>
 

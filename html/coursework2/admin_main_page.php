@@ -9,7 +9,7 @@ if (!isset($_SESSION['username'])) { // check if the user is not logged in. If t
 
 <html>
 	<head>
-		<title>Traffic Incident System: Main Page</title>
+		<title>TIMS: Main Page</title>
 		<link rel="stylesheet" href="css/format.css">
 	</head>
 

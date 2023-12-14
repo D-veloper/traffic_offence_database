@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <html>
 	<head>
-		<title>Traffic Incident System: Add Vehicle</title>
+		<title>TIMS: Add Vehicle</title>
 		<link rel="stylesheet" href="css/format.css">
 	</head>
 

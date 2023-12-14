@@ -38,7 +38,7 @@ if ($admin_status == 1) // if admin redirect user
 
 <html>
 	<head>
-		<title>Traffic Incident System: Main Page</title>
+		<title>TIMS: Main Page</title>
 		<link rel="stylesheet" href="css/format.css">
 	</head>
 
